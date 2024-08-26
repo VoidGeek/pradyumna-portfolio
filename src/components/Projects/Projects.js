@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
-import Tours from "../../Assets/Projects/Tours.png";
+import Tours from "../../Assets/Projects/images (1).jpeg";
 import greivance from "../../Assets/Projects/grievance.png";
 import Kulkunda from "../../Assets/Projects/Kulkunda.png";
 import Kali from "../../Assets/Projects/kali.png";
