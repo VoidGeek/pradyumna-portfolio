@@ -1,9 +1,9 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import homeLogo from "../../Assets/home-main.svg";
 import Particle from "../Particle";
 import Home2 from "./Home2";
 import Type from "./Type";
+import Tilt from "react-parallax-tilt";
 
 function Home() {
   return (
@@ -22,7 +22,7 @@ function Home() {
 
               <h1 className="heading-name">
                 I'M
-                <strong className="main-name"> VIJAYENDRA NAYAK</strong>
+                <strong className="main-name"> PRADYUMNA PRAVEEN</strong>
               </h1>
 
               <div style={{ padding: 50, textAlign: "left" }}>
@@ -31,12 +31,19 @@ function Home() {
             </Col>
 
             <Col md={5} style={{ paddingBottom: 20 }}>
-              <img
-                src={homeLogo}
-                alt="home pic"
-                className="img-fluid"
-                style={{ maxHeight: "450px" }}
-              />
+              <Tilt
+                options={{
+                  max: 25, // Maximum tilt angle
+                  scale: 1.1, // Scale factor
+                  speed: 400, // Animation speed
+                }}
+              >
+                <img
+                  src="https://images.playground.com/7761d3f7031e43e1adb859b3313daeed.jpeg"
+                  alt="home pic"
+                  className="img-fluid"
+                />
+              </Tilt>
             </Col>
           </Row>
         </Container>

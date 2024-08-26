@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
 import Tours from "../../Assets/Projects/Tours.png";
-import greivance from "../../Assets/Projects/greivance.jpeg";
+import greivance from "../../Assets/Projects/grievance.png";
 import Kulkunda from "../../Assets/Projects/Kulkunda.png";
 import Kali from "../../Assets/Projects/kali.png";
 import Human from "../../Assets/Projects/Human.png";
@@ -25,7 +25,7 @@ function Projects() {
               imgPath={Kulkunda}
               isBlog={false}
               title="Kulkunda Temple Official website"
-              description="My personal blog page build with Next.js and Tailwind Css which takes the content from makdown files and renders it using Next.js. Supports dark mode and easy to write blogs using markdown."
+              description= "Enables devotees to engage in various sevas and other activities, enhancing their spiritual experience and involvement with the temple."
               ghLink="https://github.com/isecoder"
             />
           </Col>
@@ -34,9 +34,9 @@ function Projects() {
             <ProjectCard
               imgPath={greivance}
               isBlog={false}
-              title="Greivance management system"
-              description="Online platform for adressing the issues of public directly by the government built with react.js."
-              ghLink="https://github.com/NITHIN3387/grievance-management-system"
+              title="Secure Portal for Admins"
+              description="The Secure Portal for Admins is a protected access area designed for administrators, offering a centralized and safe environment to manage system settings, oversee user activities, and handle critical operations."
+              ghLink="https://github.com/VoidGeek/Admin-Portal-Client-React.git"
             />
           </Col>
 
@@ -44,27 +44,27 @@ function Projects() {
             <ProjectCard
               imgPath={Tours}
               isBlog={false}
-              title="Tours & Travels Website"
-              description="Tours and Travels website used to book the trips for you and your family and explore this world usig React Js"
-              ghLink="https://github.com/VijayendraNayak/Tours-Travels.git"
+              title="Blog Management System"
+              description="The Blog Management System is built with PHP and MySQL, offering an easy-to-use interface for creating, editing, and managing blog posts, with PHP handling server-side tasks and MySQL for data storage."
+              ghLink="https://github.com/VoidGeek/BlogPlus.git"
             />
           </Col>
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={Kali}
               isBlog={false}
-              title="Network Instrusion Detection System"
-              description="A network intrusion detection system (NIDS) monitors network traffic for suspicious activity and potential threats, alerting administrators to security breaches."
-              ghLink="https://github.com/VijayendraNayak/mini-project.git"
+              title="Yoga Pose Detection using ML"
+              description="Yoga Pose Detection using ML leverages machine learning to accurately identify and analyze yoga poses for improved practice and feedback."
+              ghLink="https://github.com/VoidGeek/mini-project-yoga.git"
             />
           </Col>
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={Human}
               isBlog={false}
-              title="3D Virtual-Try-On"
-              description="A 3D virtual try-on allows users to visualize and try on products, such as clothing or accessories, in a virtual environment using augmented reality technology."
-              ghLink="https://github.com/VijayendraNayak/3D-Virtual-Try-On.git"
+              title="Wearable EEG to Detect Seizures in Real Time"
+              description="Deep learning Project to capture brain waves and predict seizures instantly preventing further damage to the patient."
+              ghLink="https://github.com/VoidGeek/Seizure-Predict.git"
             />
           </Col>
         </Row>
