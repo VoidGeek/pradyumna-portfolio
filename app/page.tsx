@@ -6,8 +6,6 @@ import { FaLinkedin } from "react-icons/fa"; // LinkedIn icon
 
 export default function Home() {
   useEffect(() => {
-    // Check if the screen width is large enough for desktops
-    if (window.innerWidth < 768) return; // Disable for devices smaller than 768px
     const floatingIcons = document.querySelectorAll(".floating-icon");
 
     floatingIcons.forEach((icon, index) => {
@@ -27,6 +25,25 @@ export default function Home() {
 
       setTimeout(jiggle, delay);
     });
+
+    // Disable mouse follower on mobile
+    const isMobile = window.innerWidth < 768; // Check if the device is mobile
+    if (!isMobile) {
+      const handleMouseMove = (e: MouseEvent) => {
+        floatingIcons.forEach((icon) => {
+          const rect = (icon as HTMLElement).getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          (icon as HTMLElement).style.transform = `translate(${x}px, ${y}px)`;
+        });
+      };
+
+      window.addEventListener("mousemove", handleMouseMove);
+
+      return () => {
+        window.removeEventListener("mousemove", handleMouseMove);
+      };
+    }
   }, []);
 
   return (
