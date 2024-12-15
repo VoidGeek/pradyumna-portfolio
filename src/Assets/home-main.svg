@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 1000" width="1000" height="1000">
-	<defs>
-		<image width="775" height="817" id="img1" xlink:href="https://m1.quebecormedia.com/emp/emp/AdobeStock_207766680b5eaab0a-446b-4a7b-91d9-c1353ce96f23_ORIGINAL.jpg?impolicy=crop-resize&x=0&y=0&w=5749&h=3793&width=400"/>
-	</defs>
-	<style>
-		tspan { white-space:pre }
-	</style>
-	<use id="Page 1" xlink:href="#img1" x="108" y="85" />
-</svg>
