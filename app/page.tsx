@@ -1,9 +1,13 @@
 "use client";
 import Image from "next/image";
 import { useEffect } from "react";
+import { AiOutlineMail } from "react-icons/ai"; // Gmail icon
+import { FaLinkedin } from "react-icons/fa"; // LinkedIn icon
 
 export default function Home() {
   useEffect(() => {
+    // Check if the screen width is large enough for desktops
+    if (window.innerWidth < 768) return; // Disable for devices smaller than 768px
     const floatingIcons = document.querySelectorAll(".floating-icon");
 
     floatingIcons.forEach((icon, index) => {
@@ -28,13 +32,15 @@ export default function Home() {
   return (
     <div className="min-h-screen p-8 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <header className="flex flex-col items-center text-center mb-16">
-        <Image
-          src="/profile.jpg" // Replace with your profile image
-          alt="Profile Picture"
-          width={120}
-          height={120}
-          className="rounded-full mb-4"
-        />
+        <div className="w-[150px] h-[150px] rounded-full overflow-hidden">
+          <Image
+            src="/profile.webp" // Ensure the path is correct
+            alt="Profile Picture"
+            width={150}
+            height={150}
+            className="object-cover"
+          />
+        </div>
         <h1 className="text-3xl font-bold">Backend Developer Portfolio</h1>
         <p className="text-gray-600 mt-2">
           Hi, I’m a passionate backend developer with expertise in building
@@ -44,7 +50,7 @@ export default function Home() {
 
       <main className="space-y-16">
         {/* Skills Section */}
-        <section id="skills" className="">
+        <section id="skills">
           <h2 className="text-2xl font-bold mb-4">Skills</h2>
           <ul className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-center">
             <li className="bg-gray-100 dark:bg-gray-800 p-4 rounded shadow-md">
@@ -125,19 +131,13 @@ export default function Home() {
             href="mailto:pradyumna.p.6969@gmail.com"
             className="floating-icon bg-blue-500 text-white w-12 h-12 flex items-center justify-center rounded-full shadow-lg hover:bg-blue-600"
           >
-            <Image
-              src="/gmail-icon.png"
-              alt="Gmail Icon"
-              width={24}
-              height={24}
-            />
+            <AiOutlineMail size={24} />
           </a>
 
           {/* LinkedIn */}
           <a
             href="linkedin://in/pradyumna-p-010038231"
             onClick={(e) => {
-              // Fallback for browsers or unsupported platforms
               if (!navigator.userAgent.match(/Android|iPhone|iPad/i)) {
                 e.preventDefault();
                 window.open(
@@ -148,12 +148,7 @@ export default function Home() {
             }}
             className="floating-icon bg-blue-400 text-white w-12 h-12 flex items-center justify-center rounded-full shadow-lg hover:bg-blue-500"
           >
-            <Image
-              src="/linkedin-icon.png"
-              alt="LinkedIn Icon"
-              width={24}
-              height={24}
-            />
+            <FaLinkedin size={24} />
           </a>
         </section>
       </main>
