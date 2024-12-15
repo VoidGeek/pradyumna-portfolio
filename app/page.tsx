@@ -17,7 +17,7 @@ export default function Home() {
         yPos += 0.03;
         const x = Math.sin(xPos) * jiggleForce; // Horizontal jiggle
         const y = Math.cos(yPos) * jiggleForce; // Vertical jiggle
-        (icon as HTMLElement).style.transform =  `translate(${x}px, ${y}px)`;
+        (icon as HTMLElement).style.transform = `translate(${x}px, ${y}px)`;
         requestAnimationFrame(jiggle);
       };
 
@@ -120,15 +120,9 @@ export default function Home() {
           id="contact"
           className="fixed bottom-8 right-8 flex flex-col gap-4"
         >
+          {/* Gmail */}
           <a
-            href="https://mail.google.com/"
-            onClick={(e) => {
-              e.preventDefault();
-              window.open(
-                "https://mail.google.com/mail/?view=cm&to=pradyumna.p.6969@gmail.com",
-                "_blank"
-              );
-            }}
+            href="mailto:pradyumna.p.6969@gmail.com"
             className="floating-icon bg-blue-500 text-white w-12 h-12 flex items-center justify-center rounded-full shadow-lg hover:bg-blue-600"
           >
             <Image
@@ -138,10 +132,20 @@ export default function Home() {
               height={24}
             />
           </a>
+
+          {/* LinkedIn */}
           <a
-            href="https://www.linkedin.com/in/pradyumna-p-010038231/"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="linkedin://in/pradyumna-p-010038231"
+            onClick={(e) => {
+              // Fallback for browsers or unsupported platforms
+              if (!navigator.userAgent.match(/Android|iPhone|iPad/i)) {
+                e.preventDefault();
+                window.open(
+                  "https://www.linkedin.com/in/pradyumna-p-010038231/",
+                  "_blank"
+                );
+              }
+            }}
             className="floating-icon bg-blue-400 text-white w-12 h-12 flex items-center justify-center rounded-full shadow-lg hover:bg-blue-500"
           >
             <Image
@@ -155,7 +159,7 @@ export default function Home() {
       </main>
 
       <footer className="mt-16 text-center text-gray-600">
-        © {new Date().getFullYear()} Your Name. All rights reserved.
+        © {new Date().getFullYear()} Pradyumna P. All rights reserved.
       </footer>
     </div>
   );
