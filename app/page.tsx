@@ -1,51 +1,8 @@
 "use client";
 import Image from "next/image";
-import { useEffect } from "react";
-import { AiOutlineMail } from "react-icons/ai"; // Gmail icon
-import { FaLinkedin } from "react-icons/fa"; // LinkedIn icon
+import FloatingIcons from "@/components/FloatingIcons"; // Import FloatingIcons
 
 export default function Home() {
-  useEffect(() => {
-    const floatingIcons = document.querySelectorAll(".floating-icon");
-
-    floatingIcons.forEach((icon, index) => {
-      let xPos = 0;
-      let yPos = 0;
-      const jiggleForce = index === 0 ? 3 : 2; // Reduce jiggle force for the second icon
-      const delay = index === 0 ? 0 : 200; // Add delay for the second icon
-
-      const jiggle = () => {
-        xPos += 0.05;
-        yPos += 0.03;
-        const x = Math.sin(xPos) * jiggleForce; // Horizontal jiggle
-        const y = Math.cos(yPos) * jiggleForce; // Vertical jiggle
-        (icon as HTMLElement).style.transform = `translate(${x}px, ${y}px)`;
-        requestAnimationFrame(jiggle);
-      };
-
-      setTimeout(jiggle, delay);
-    });
-
-    // Disable mouse follower on mobile
-    const isMobile = window.innerWidth < 768; // Check if the device is mobile
-    if (!isMobile) {
-      const handleMouseMove = (e: MouseEvent) => {
-        floatingIcons.forEach((icon) => {
-          const rect = (icon as HTMLElement).getBoundingClientRect();
-          const x = e.clientX - rect.left - rect.width / 2;
-          const y = e.clientY - rect.top - rect.height / 2;
-          (icon as HTMLElement).style.transform = `translate(${x}px, ${y}px)`;
-        });
-      };
-
-      window.addEventListener("mousemove", handleMouseMove);
-
-      return () => {
-        window.removeEventListener("mousemove", handleMouseMove);
-      };
-    }
-  }, []);
-
   return (
     <div className="min-h-screen p-8 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <header className="flex flex-col items-center text-center mb-16">
@@ -138,36 +95,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Contact Section */}
-        <section
-          id="contact"
-          className="fixed bottom-8 right-8 flex flex-col gap-4"
-        >
-          {/* Gmail */}
-          <a
-            href="mailto:pradyumna.p.6969@gmail.com"
-            className="floating-icon bg-blue-500 text-white w-12 h-12 flex items-center justify-center rounded-full shadow-lg hover:bg-blue-600"
-          >
-            <AiOutlineMail size={24} />
-          </a>
-
-          {/* LinkedIn */}
-          <a
-            href="linkedin://in/pradyumna-p-010038231"
-            onClick={(e) => {
-              if (!navigator.userAgent.match(/Android|iPhone|iPad/i)) {
-                e.preventDefault();
-                window.open(
-                  "https://www.linkedin.com/in/pradyumna-p-010038231/",
-                  "_blank"
-                );
-              }
-            }}
-            className="floating-icon bg-blue-400 text-white w-12 h-12 flex items-center justify-center rounded-full shadow-lg hover:bg-blue-500"
-          >
-            <FaLinkedin size={24} />
-          </a>
-        </section>
+        {/* Floating Icons */}
+        <FloatingIcons />
       </main>
 
       <footer className="mt-16 text-center text-gray-600">
